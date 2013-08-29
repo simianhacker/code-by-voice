@@ -22,4 +22,12 @@ In this repository you will find all the support files for my "code by voice" se
 
 ## Getting Started
 
-Coming very soon...
+Here are the steps to get your system installed and running.
+
+!!! These are a work in progress !!!
+
+1. Install Windows 7
+1. Install Dragon Naturally Speaking (and go through the training)
+1. Download and Install ActiveState's Python (http://www.activestate.com/Products/activepython/index.mhtml)
+1. Download and Intsall Unimacro (http://qh.antenna.nl/unimacro/installation/installation.html)
+1. Download and Install DragonFly (http://code.google.com/p/dragonfly/downloads/list)
