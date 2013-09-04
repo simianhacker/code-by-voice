@@ -24,6 +24,7 @@ rules = MappingRule(
 			"Oscar"    : Key("o"),
 			"Papa"     : Key("p"),
 			"Queen"    : Key("q"),
+			"Romeo"    : Key("r"),
 			"Rico"     : Key("r"),
 			"soy"      : Key("s"),
 			"tango"    : Key("t"),

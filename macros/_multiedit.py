@@ -79,7 +79,7 @@ from dragonfly import *
 #  Note that it is harmless to release ("...:up") a key multiple
 #  times or when that key is not held down at all.
 
-release = Key("shift:up, ctrl:up")
+release = Key("shift:up, ctrl:up, alt:up")
 
 
 #---------------------------------------------------------------------------
@@ -103,10 +103,10 @@ config.cmd.map    = Item(
      "down <n> (page | pages)":          Key("pgdown:%(n)d"),
      "left <n> (word | words)":          Key("c-left:%(n)d"),
      "right <n> (word | words)":         Key("c-right:%(n)d"),
-     "home":                             Key("home"),
-     "end":                              Key("end"),
-     "doc home":                         Key("c-home"),
-     "doc end":                          Key("c-end"),
+     # "home":                             Key("home"),
+     # "end":                              Key("end"),
+     # "doc home":                         Key("c-home"),
+     # "doc end":                          Key("c-end"),
 
      "space [<n>]":                      release + Key("space:%(n)d"),
      "enter [<n>]":                      release + Key("enter:%(n)d"),
@@ -120,7 +120,7 @@ config.cmd.map    = Item(
      "duplicate <n>":                    release + Key("c-c, c-v:%(n)d"),
      "copy":                             release + Key("c-c"),
      "cut":                              release + Key("c-x"),
-     "select all":                       release + Key("c-a"),
+     # "select all":                       release + Key("c-a"),
      "[hold] shift":                     Key("shift:down"),
      "release shift":                    Key("shift:up"),
      "[hold] control":                   Key("ctrl:down"),
