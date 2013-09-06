@@ -116,6 +116,7 @@ rules = MappingRule(
     "singles"                     : Key("squote, squote, escape, i"),
     "inc."                        : Key("c-a"),
     "deinc"                       : Key("c-x"),
+    "jog"                  : Key("c-j"),
     },
 
     extras = [

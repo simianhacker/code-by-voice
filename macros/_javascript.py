@@ -6,7 +6,6 @@ rules = MappingRule(
     name = "javascript",
     mapping = {
     "smear"                : Text("err"),
-    "jog"                  : Key("c-j"),
     "function"             : Text("fn") + Key("tab"),
     "very equal"           : Text("var_equal") + Key("tab"),
     "very"                 : Text("var") + Key("tab"),
@@ -27,7 +26,6 @@ rules = MappingRule(
     "return call back air" : Text("return_callback_error") + Key("tab"),
     "callback function"    : Text("callback_function") + Key("tab"),
     "log"                  : Text("cl") + Key("tab"),
-    "comment"          : Key("slash, slash"),
     "comment <text>"       : Text("// %(text)s"),
     "triple equals"        : Text(" === "),
     "triple not equals"    : Text(" !== "),
