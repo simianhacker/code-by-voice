@@ -1,0 +1,6 @@
+{
+  "dependicies": {},
+  "dependencies": {
+    "gulp": "~0.2.0"
+  }
+}

@@ -1,4 +1,4 @@
-from dragonfly import (Grammar, MappingRule, Key, Config, Section, Item)
+from dragonfly import (Grammar, FocusWindow, MappingRule, Key, Config, Section, Item, Playback)
 
 rules = MappingRule(
 	name = "general",
@@ -9,6 +9,11 @@ rules = MappingRule(
 		"right when": Key("w-right"),
 		"min win": Key("w-down"),
     "switch apps": Key("alt:down, tab"),
+		"switch app": Key("a-tab"),
+    "termi": FocusWindow(executable="putty"),
+    "foxy": FocusWindow(executable="firefox"),
+    "Jimmy": FocusWindow(executable = "gvim"),
+    "Heidi": FocusWindow(executable = "heidisql"),
 	}
 )
 

@@ -1,0 +1,163 @@
+#
+# This is a config file for Dragonfly's _multiedit.py command-module.
+#  To use this config, you must rename this file to _multiedit.txt and
+#  place it in the same directory as the _multiedit.py file.
+#
+
+# Pull in all of Dragonfly's action objects so that we can use them here.
+
+from dragonfly import *
+
+
+#---------------------------------------------------------------------------
+# Here we define the release action which releases all
+#  modifier-keys used within this grammar.  It is defined here
+#  because this functionality is used in many different places.
+#  Note that it is harmless to release ("...:up") a key multiple
+#  times or when that key is not held down at all.
+
+release = Key("shift:up, ctrl:up")
+
+
+#---------------------------------------------------------------------------
+# Here we define the single-action commands.  These can be spoken
+#  in series so as to execute multiple actions within a single utterance.
+
+cmd.map = {
+           # Spoken-form    ->    ->    ->     Action object
+
+           "up [<n>]":                         Key("up:%(n)d"),
+           "down [<n>]":                       Key("down:%(n)d"),
+           "left [<n>]":                       Key("left:%(n)d"),
+           "right [<n>]":                      Key("right:%(n)d"),
+           "page up [<n>]":                    Key("pgup:%(n)d"),
+           "page down [<n>]":                  Key("pgdown:%(n)d"),
+           "up <n> (page | pages)":            Key("pgup:%(n)d"),
+           "down <n> (page | pages)":          Key("pgdown:%(n)d"),
+           "left <n> (word | words)":          Key("c-left:%(n)d"),
+           "right <n> (word | words)":         Key("c-right:%(n)d"),
+           "home":                             Key("home"),
+           "end":                              Key("end"),
+           "doc home":                         Key("c-home"),
+           "doc end":                          Key("c-end"),
+
+           "space [<n>]":                      release + Key("space:%(n)d"),
+           "enter [<n>]":                      release + Key("enter:%(n)d"),
+           "tab [<n>]":                        Key("tab:%(n)d"),
+           "delete [<n>]":                     release + Key("del:%(n)d"),
+           "delete [<n> | this] (line|lines)": release + Key("home, s-down:%(n)d, del"),
+           "backspace [<n>]":                  release + Key("backspace:%(n)d"),
+           "pop up":                           release + Key("apps"),
+
+           "paste":                            release + Key("c-v"),
+           "duplicate <n>":                    release + Key("c-c, c-v:%(n)d"),
+           "copy":                             release + Key("c-c"),
+           "cut":                              release + Key("c-x"),
+           "select all":                       release + Key("c-a"),
+           "[hold] shift":                     Key("shift:down"),
+           "release shift":                    Key("shift:up"),
+           "[hold] control":                   Key("ctrl:down"),
+           "release control":                  Key("ctrl:up"),
+           "release [all]":                    release,
+
+           "say <text>":                       release + Text("%(text)s"),
+           "mimic <text>":                     release + Mimic(extra="text"),
+					 
+					 "Alpha"    : Key("a"),
+					 "bravo"    : Key("b"),
+					 "Charlie"  : Key("c"),
+					 "Callie"   : Key("c"),
+					 "Delta"    : Key("d"),
+					 "echo"     : Key("e"),
+					 "foxtrot"  : Key("f"),
+					 "golf"     : Key("g"),
+					 "gamma"    : Key("g"),
+					 "Juliet"   : Key("j"),
+					 "hotel"    : Key("h"),
+					 "India"    : Key("i"),
+					 "iota"    : Key("i"),
+					 "kilo"     : Key("k"),
+					 "Lima"     : Key("l"),
+					 "Mike"     : Key("m"),
+					 "November" : Key("n"),
+					 "Oscar"    : Key("o"),
+					 "Papa"     : Key("p"),
+					 "Queen"    : Key("q"),
+					 "Romeo"    : Key("r"),
+					 "Rico"     : Key("r"),
+					 "soy"      : Key("s"),
+					 "tango"    : Key("t"),
+					 "toy"      : Key("t"),
+					 "uniform"  : Key("u"),
+					 "Victor"   : Key("v"),
+					 "Van"      : Key("v"),
+					 "whiskey"  : Key("w"),
+					 "x-ray"    : Key("x"),
+					 "yellow"   : Key("y"),
+					 "Zulu"     : Key("z"),
+					 "zebra"    : Key("z"),
+          }
+
+
+#---------------------------------------------------------------------------
+# Here we define various functions for formatting text.
+# Each of these functions must have a docstring which defines its
+#  spoken-form.  This docstring must include the "<dictation>" extra.
+#  See below for various examples.
+
+# Format: some_words
+def format_score(dictation):          # Function name must start with "format_".
+    """ score <dictation> """         # Docstring defining spoken-form.
+    text = str(dictation).lower()             # Get written-form of dictated text.
+    return "_".join(text.split(" "))  # Put underscores between words.
+
+def format_jive(dictation):          # Function name must start with "format_".
+    """  jive <dictation> """         # Docstring defining spoken-form.
+    text = str(dictation).lower()             # Get written-form of dictated text.
+    return "-".join(text.split(" "))  # Put underscores between words.
+
+def format_dotty(dictation):          # Function name must start with "format_".
+    """ Dotty <dictation> """         # Docstring defining spoken-form.
+    text = str(dictation).lower()             # Get written-form of dictated text.
+    return ".".join(text.split(" "))  # Put underscores between words.
+
+# Format: some_words()
+def format_under_function(dictation):
+    """ under func <dictation> """
+    text = str(dictation).lower()
+    return "_".join(text.split(" ")) + "()"
+
+# Format: SomeWords
+def format_camel(dictation):
+    """ camel <dictation> """
+    text = str(dictation)
+    words = [word.capitalize() for word in text.split(" ")]
+    return "".join(words)
+
+# Format: somewords
+def format_one_word(dictation):
+    """ [all] one word <dictation> """
+    text = str(dictation)
+    return "".join(text.split(" "))
+
+# Format: SOMEWORDS
+def format_upper_one_word(dictation):
+    """ one word upper <dictation> """
+    text = str(dictation)
+    words = [word.upper() for word in text.split(" ")]
+    return "".join(words)
+
+# Format: SOME_WORDS
+def format_upper_score(dictation):
+    """ upper score <dictation> """
+    text = str(dictation)
+    words = [word.upper() for word in text.split(" ")]
+    return "_".join(words)
+
+# Format: someWords
+def format_studley(dictation):
+    """ studley <dictation> """
+    text = str(dictation)
+    words = text.split(" ")
+    return words[0] + "".join(w.capitalize() for w in words[1:])
+
