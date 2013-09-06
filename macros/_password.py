@@ -18,7 +18,7 @@ class PasswordRule(MappingRule):
     getPassword = Key("w-b/10, s-tab/10, right:8/10, enter, c-f/10") + value + Key('enter/10, escape/10, c-c/10, a-tab/10')
     getPassword.execute()
     clipboard = Clipboard()
-    clipboard.copy_from_system()
+    clipboard.copy_from_system(clear = True)
     password = clipboard.get_text()
     action = Text(password)
     action.execute()
