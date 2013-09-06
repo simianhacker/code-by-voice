@@ -16,7 +16,7 @@ rules = MappingRule(
       "term vertical": Key('c-b, v'),
       "term split": Key('c-b, s'),
       "term detach": Key('c-b, d'),
-      "term down [<n>]": Key('c-b, colon') + Text("resize-pane %(n)d") + Key('enter'),
+      "term down [<n>]": Key('c-b, colon') + Text("resize-pane -D %(n)d") + Key('enter'),
       "term up [<n>]": Key('c-b, colon') + Text("resize-pane -U %(n)d") + Key('enter'),
       "term left [<n>]": Key('c-b, colon') + Text("resize-pane -L %(n)d") + Key('enter'),
       "term right [<n>]": Key('c-b, colon') + Text("resize-pane -R %(n)d") + Key('enter'),

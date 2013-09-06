@@ -86,9 +86,11 @@ rules = MappingRule(
     "big put"                     : Key("P"),
     "duplicate line"                     : Key("Y, P"),
     "that's all"                  : Key("escape, g, g, V, G"),
+    "comment out": Key("backslash, backslash"),
 
     "save"                        : Key("escape, colon, w, enter"),
     "close"                       : Key("escape, colon, q, enter"),
+    "close all"                       : Key("escape, colon, q, a, l, l, enter"),
     "hard close"                  : Key("escape, colon, q, exclamation, enter"),
     "command [<text>]"            : Key("escape, colon") + Text("%(text)s"),
     "scratch"                     : Key("escape, u"),
