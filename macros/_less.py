@@ -1,24 +1,18 @@
 from dragonfly import (Grammar, AppContext, MappingRule, Dictation, Key, Text, Integer, Mimic)
 
-context = AppContext(title = "jade")
-grammar = Grammar("jade", context=context)
+context = AppContext(title = "less")
+grammar = Grammar("less", context=context)
 noSpaceNoCaps = Mimic("\\no-caps-on") + Mimic("\\no-space-on")
 
 rules = MappingRule(
-    name = "jade",
+    name = "less",
     mapping = {
       "heading [<n>]": Text("h%(n)d "),
-      "span [<n>]": Text(".span%(n)d"),
       "paragraph": Text("p "),
-      "link": Text("link") + Key("tab"),
-      "attribute": Text("attribute") + Key("tab"),
-      "Eckelberry": Text("echo_var") + Key("tab"),
-      "row fluid": Text(".row-fluid "),
-      "row": Text(".row"),
-      "container": Text(".container"),
-      "unordered list": Text("ul"),
-      "list item": Text("li"),
-      "image": Text("image") + Key("tab"),
+      "unordered list": Text("ul "),
+      "list item": Text("li "),
+      "image": Text("img "),
+      "<n> (pixel|pixels)": Text("%(n)dpx"),
       },
     extras = [
         Dictation("text"),
@@ -37,4 +31,5 @@ def unload():
   global grammar
   if grammar: grammar.unload()
   grammar = None
+
 

@@ -1,8 +1,9 @@
-from dragonfly import (Grammar, AppContext, MappingRule, Dictation, Key, Text, Integer)
+from dragonfly import (Grammar, AppContext, MappingRule, Dictation, Key, Text, Integer, Mimic)
 
 putty_context = AppContext(executable="putty")
 bash_context = AppContext(title="bash")
 grammar = Grammar("bash", context=(putty_context | bash_context))
+noSpaceNoCaps = Mimic("\\no-caps-on") + Mimic("\\no-space-on")
 
 rules = MappingRule(
     name = "bash",
@@ -20,7 +21,21 @@ rules = MappingRule(
       "term up [<n>]": Key('c-b, colon') + Text("resize-pane -U %(n)d") + Key('enter'),
       "term left [<n>]": Key('c-b, colon') + Text("resize-pane -L %(n)d") + Key('enter'),
       "term right [<n>]": Key('c-b, colon') + Text("resize-pane -R %(n)d") + Key('enter'),
-      "change directory": Text("cd "),
+      "term scroll": Key("c-b, lbracket"),
+
+      "watch macros": Text("cd ~/Documents/GitHub/code-by-voice && ./node_modules/.bin/gulp") + Key('enter'),
+
+      "get status": Text("git status") + Key('enter'),
+      "push": Text("git push") + Key('enter'),
+      "add all": Text("git add -A") + Key('enter'),
+      "commit": Text("git commit -a") + Key('enter'),
+      "clone": Text("git clone "),
+      "check out": Text("git checkout") + Key("tab"),
+      "fetch": Text("git fetch") + Key("tab"),
+      "stash": Text("git stash save") + Key('enter'),
+      "pop stash": Text("git stash pop") + Key('enter'),
+
+      "change directory": Text("cd ") + Key('tab') + noSpaceNoCaps,
       "cancel": Key("c-c"),
       "exit": Key("c-d"),
       "up directory": Text("cd ..") + Key('enter'),
@@ -30,6 +45,7 @@ rules = MappingRule(
       "attach": Text("tmux attach") + Key("enter"),
       "them": Text("vi") + Key("enter"),
       "tmux": Text("tmux") + Key("enter"),
+      "htop": Text("htop") + Key("enter"),
       },
     extras = [
         Dictation("text"),

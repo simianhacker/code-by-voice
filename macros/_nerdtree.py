@@ -1,14 +1,18 @@
-from dragonfly import (Grammar, AppContext, MappingRule, Dictation, Key, Text, Integer)
+from dragonfly import (Grammar, AppContext, MappingRule, Dictation, Key, Text, Integer, Mimic)
 context = AppContext(title="nerdtree")
 grammar = Grammar("nerdtree", context=context)
+noSpaceNoCaps = Mimic("\\no-caps-on") + Mimic("\\no-space-on")
 rules = MappingRule(
     name = "nerdtree",
     mapping = {
-      "split": Key("s"),
-      "add [file]": Key("m, a"),
-      "move [file]": Key("m, m"),
-      "copy [file]": Key("m, c"),
-      "kill [file]": Key("m, d"),
+      "split": Key("i"),
+      "vertical": Key("s"),
+      "add [file]": Key("m, a") + noSpaceNoCaps,
+      "move [file]": Key("m, m") + noSpaceNoCaps,
+      "copy [file]": Key("m, c") + noSpaceNoCaps,
+      "kill [file]": Key("m, d") + noSpaceNoCaps,
+      "open <n>": Text(":%(n)d") + Key("enter") + Key("enter"),
+      "open vertical <n>": Text(":%(n)d") + Key("enter, s"),
       "change root": Key("C"),
       "level up": Key("u"),
       "go to parent": Key("P"),
