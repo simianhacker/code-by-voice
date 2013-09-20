@@ -7,10 +7,10 @@ rules = MappingRule(
     mapping = {
       "split": Key("i"),
       "vertical": Key("s"),
-      "add [file]": Key("m, a") + noSpaceNoCaps,
-      "move [file]": Key("m, m") + noSpaceNoCaps,
-      "copy [file]": Key("m, c") + noSpaceNoCaps,
-      "kill [file]": Key("m, d") + noSpaceNoCaps,
+      "add [file]": noSpaceNoCaps + Key("m, a"),
+      "move [file]": noSpaceNoCaps + Key("m, m"),
+      "copy [file]": noSpaceNoCaps + Key("m, c"),
+      "kill [file]": noSpaceNoCaps + Key("m, d"),
       "open <n>": Text(":%(n)d") + Key("enter") + Key("enter"),
       "open vertical <n>": Text(":%(n)d") + Key("enter, s"),
       "change root": Key("C"),
@@ -24,6 +24,7 @@ rules = MappingRule(
       ],
 
     defaults = {
+      "text": '',
       "n" : 1
       }
     )

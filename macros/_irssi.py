@@ -7,6 +7,7 @@ rules = MappingRule(
     name = "irssi",
     mapping = {
 			"next when": Key("c-n"),
+      "close": Text("/win close"),
 			"when <n>": Text("/win %(n)d") + Key("enter"),
 			"join": Text("/join "),
       },
