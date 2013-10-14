@@ -34,6 +34,7 @@ rules = MappingRule(
     "homey"                : Text("home"),
     "module exports"              : Text("module.exports"),
     "regex"                       : Text("//") + Key("escape, i") + noSpaceNoCaps,
+    "push task": Text("push_task") + Key("tab") + noSpaceNoCaps,
     },
 
     extras = [

@@ -7,7 +7,7 @@ class PasswordRule(MappingRule):
   name = "mypassword"
 
   mapping = { 
-      "<text> password": Text('%(text)s'),
+      "get <text> password": Text('%(text)s'),
       }
 
   extras = [

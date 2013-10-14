@@ -7,6 +7,7 @@ noSpaceNoCaps = Mimic("\\no-caps-on") + Mimic("\\no-space-on")
 rules = MappingRule(
     name = "chrome",
     mapping = {
+      "edit": Key("w-a"),
       "reload" : Key("f5"),
       "open": Key("escape, o"),
       "jump": Key("escape, f"),
@@ -14,6 +15,8 @@ rules = MappingRule(
       "search tabs": Key("escape, T"),
       "find": Key("escape, slash"),
       "console": Key("cs-j"),
+      "close tab": Key("c-w"),
+      "escape": Key('escape'),
       },
     extras = [
         Dictation("text"),

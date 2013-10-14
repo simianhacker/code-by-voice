@@ -27,6 +27,7 @@ rules = MappingRule(
 
       "get status": Text("git status") + Key('enter'),
       "push": Text("git push") + Key('enter'),
+      "push to beta": Text("git push beta develop") + Key('enter'),
       "add all": Text("git add -A") + Key('enter'),
       "commit": Text("git commit -a") + Key('enter'),
       "clone": Text("git clone "),

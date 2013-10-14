@@ -19,7 +19,7 @@ Installation
 
 If you are using DNS and Natlink, simply place this file in you Natlink 
 macros directory.  It will then be automatically loaded by Natlink when 
-you next toggle your microphone or restart Natlink.
+yo next toggle your microphone or restart Natlink.
 
 Commands
 ----------------------------------------------------------------------------
@@ -94,7 +94,8 @@ class BringableBase(object):
 
 class website(BringableBase):
     def bring_it(self):
-        subprocess.Popen([r"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", self.target])
+        # subprocess.Popen([r"C:\Program Files (x86)\Mozilla Firefox\firefox.exe", self.target])
+        subprocess.Popen([r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe", self.target])
 #        webbrowser.open(self.target)
 
 class folder(BringableBase):
@@ -126,6 +127,10 @@ config.targets.mapping = Item(
                                        "Google": website("http://www.google.com"),
                                        "dev": website("https://dev.plus3.ws"),
                                        "development": ssh("development"),
+                                       "Trello": website("http://www.trello.com"),
+                                       "Gmail": website("http://mail.google.com"),
+                                       "hacker news": website("http://news.ycombinator.com"),
+                                       "Reddit": website("http://www.reddit.com"),
                                       },
                               doc="Mapping of spoken targets to bringable targets.",
                               namespace={
