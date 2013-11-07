@@ -93,6 +93,12 @@ rules = MappingRule(
     "vice"                        : Key("v, i, lbrace"),
     "vick"                        : Key("v, i, lbracket"),
 
+    "outer single"                : Key("v, a, squote"),
+    "outer double"                : Key("v, a, dquote"),
+    "outer paren"                 : Key("v, a, lparen"),
+    "outer brace"                 : Key("v, a, lbrace"),
+    "outer bracket"               : Key("v, a, lbracket"),
+
     "next [by] [<n>]"             : Key("n:%(n)d"),
     "visual"                      : Key("escape, v"),
     "big visual"                  : Key("escape, V"),
@@ -142,7 +148,8 @@ rules = MappingRule(
     "double or": Text(" || "),
     "double ampersand": Text(" && "),
     "double and": Text(" && "),
-    "fat arrow": Text(" => ") + noSpaceNoCaps,
+    "fat arrow": Text(" =>") + noSpaceNoCaps,
+    "skinny arrow": Text(" ->") + noSpaceNoCaps,
     "triple equals"        : Text(" === "),
     "triple not equals"    : Text(" !== "),
     "jog"                  : Key("c-j"),

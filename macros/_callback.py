@@ -9,7 +9,7 @@ def myCallback(command, args):
       print "setting natlink.mic to %s" % args
       r = redis.Redis()
       r.set('natlink.mic', args)
-    except e:
+    except Exception as e:
       print e
       print "falied to connect to redis"
       
