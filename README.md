@@ -42,3 +42,5 @@ Here are the steps to get your system installed and running.
 1. Download DragonFly Zip File, not the windows installer (http://code.google.com/p/dragonfly/downloads/list)
 1. Exract dragonfly-0.6.5.zip
 1. Install DragonFly (inside the dragonfly-0.6.5 directory run "python setup.py install")
+1. Enable Natlink via GUI (using the start menu)
+1. Restart Dragon NaturallySpeaking
