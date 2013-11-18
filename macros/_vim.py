@@ -20,8 +20,8 @@ rules = MappingRule(
 
       "drop [by] [<n>]"             : Text("%(n)d") + Key("j"),
       "rise [by] [<n>]"             : Text("%(n)d") + Key("k"),
-      "scroll up [<n>]"             : Text("%(n)d") + Key("c-y"),
-      "scroll down [<n>]"           : Text("%(n)d") + Key("c-e"),
+      "scroll up [<scroll_by>]"             : Text("%(scroll_by)d") + Key("c-y"),
+      "scroll down [<scroll_by>]"           : Text("%(scroll_by)d") + Key("c-e"),
 
       "balance"                     : Key("escape, c-w, equal"),
       "insert"                      : Key("escape, i") + noSpaceNoCaps,
@@ -162,11 +162,13 @@ rules = MappingRule(
         Dictation("text", format=False),
         Dictation("mark", format=False),
         Integer("n", 1, 20000),
+        Integer("scroll_by", 1, 20000),
       ],
     defaults = {
       "text" : "", 
       "mark": "a",
-      "n" : 1
+      "n" : 1,
+      "scroll_by" : 10
       }
     )
  
